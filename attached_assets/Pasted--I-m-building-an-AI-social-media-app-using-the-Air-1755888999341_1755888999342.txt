@@ -1,0 +1,74 @@
+• พรอมต์เริ่มต้นในการสร้างโครงสร้างหน้าเพจ
+    ◦ "I'm building an AI social media app using the Airshare API i want you to build out the entire page infrastructure including the pages in a nicely ordered side navigation bar social dashboard content calendar social messages social comments upload posts this is the Airshare API overview to give you an idea of how it works" (ตามด้วยลิงก์ AirShare API overview)
+• พรอมต์เพื่อเพิ่มหน้า "Connect Socials"
+    ◦ "Okay can you now build out the connect socials page and add it to the side navbar?"
+• พรอมต์เพื่อสร้างฐานข้อมูล Neon และฟังก์ชันสมัครสมาชิก
+    ◦ "Okay that looks great now build out the neon database and let a user sign up to the application"
+• พรอมต์เพื่อสร้างปุ่ม Social Profile และเพิ่ม RSA private key
+    ◦ "Okay that works great now for the user to create a social profile there needs to be a social profile button on the connect socials page then we're going to head over to the airshare docs we're going to head to the profiles we're going to find the create a user profile API call and we're going to grab that URL we're going to head back to replet and we're going to say this is the docs to understand how that API call is made" (ตามด้วยลิงก์ Airshare docs) "This needs to be stored in the database because it is used in many API calls in the future also I want you to add this RSA private key to the codebase because we need to use it in our next step" (ตามด้วยไฟล์ RSA private key) "Please implement everything I told you and tell me your understanding."
+• พรอมต์เพื่อแก้ไข API call structure สำหรับ Create Social Profile
+    ◦ "Great now this is the create social profile API post call request structure" (ตามด้วย JavaScript code example และ example response) "Please implement this and I'll click the create social profile button again"
+• พรอมต์เพื่อแจ้งปัญหาการจัดเก็บ Airshare ID Profile และให้โครงสร้าง API call ใหม่
+    ◦ "I clicked the create social profile button and it said the social profile was created but the airshare ID profile did not get stored in the database so I don't think the API call actually got triggered" (ตามด้วย Request structure พร้อม URL) "Please fix"
+• พรอมต์เพื่อแก้ไขปัญหา API call ไม่สำเร็จ โดยระบุ Airshare API endpoint ที่ถูกต้อง
+    ◦ "You are saying the API call is being made but in reality I can see that it's not the Airshare API endpoint for this API call is this" (ตามด้วย Airshare API endpoint)
+• พรอมต์เพื่อเพิ่มปุ่ม "Connect Accounts"
+    ◦ "Okay great the user was able to make a profile key on airshare on on on our s on our system and it got stored in the database um now please add a button called connect accounts to the connect social accounts page and then we will configure how this button works once it's built"
+• พรอมต์เพื่อกำหนดการทำงานของปุ่ม "Connect Accounts" ด้วย JWT API call
+    ◦ "Okay great now the connect accounts button is this JWT API call on Airshare" (ตามด้วย JWT API call example) "We also need to use our custom domain ID for our application to open the private airshare URL" (ตามด้วย domain ID) "The RSA private key we added to the codebase is also used when the user clicks connect accounts along with the profile key that we just generated" (ตามด้วย redirect URL และ SSO URL) "Please tell me your understanding and implement" (ตามด้วย URL เพื่อให้ agent อ่าน text content)
+• พรอมต์เพื่อแก้ไข error "requires not defined" จากการคลิกปุ่ม Connect Accounts
+    ◦ "Okay cool i clicked the connect accounts button and we got this error in the console" (ตามด้วยข้อความ error ที่ screenshot)
+• พรอมต์เพื่อแก้ไข "API not found error" และระบุ fields ที่ต้องส่งผ่านใน API call
+    ◦ "I tried the connect accounts button again and this time I got an API not found error please fix" (ตามด้วย fields ที่จำเป็นสำหรับ API call: API key, domain, private key, profile key และข้อความ error)
+• พรอมต์เพื่อแก้ไขปัญหา "Invalid response from the server" และกำหนดการ redirect URL
+    ◦ "Great I tested again and we got invalid response from the server when the user clicks the connect accounts button we get this response from the API" (ตามด้วย API response) "We then use the URL in the response to open up that redirect the user wanted to go to"
+• พรอมต์เพื่อแสดงข้อมูลบัญชีโซเชียลที่เชื่อมต่อแล้วและแพลตฟอร์มที่ใช้ได้บนหน้า Connect Socials
+    ◦ "Okay great i can see the social accounts data has been stored in the social accounts table now on the front end of the connect socials page we need to show how many platforms the user is connected to and show the available platforms they are connected to in the component beneath that" (ตามด้วย screenshot ของหน้าเพจ) "Also bring all the connected account cards to the top of the available social platforms uh component"
+• พรอมต์เพื่อปรับเปลี่ยน header ของ Social Dashboard
+    ◦ (ตามด้วย screenshot ของ header Social Dashboard) "We want to change that around a little bit we want it to be total followers total posts um connected accounts and total views"
+• พรอมต์เพื่อสร้าง Schema ฐานข้อมูลสำหรับ Social Profile Analytics
+    ◦ "Okay that looks nice now let's build out the schema for the social profile analytics this is the entire available response from the social platform analytics API request on Airshare" (ตามด้วย Airshare API response) "Please build out a table that can store all of this data"
+• พรอมต์เพื่อ implement Get Statistics API call และระบุ parameters
+    ◦ "Okay uh thanks for building the database and now I want you to implement the get statistics API call that gives that response I told you about in the last message this is the request example" (ตามด้วย request example) "These are the um header and body params that need to be called only pass the connected platforms of a user in the platforms field"
+• พรอมต์เพื่อแก้ไขปัญหาการจัดเก็บข้อมูล Analytics ในฐานข้อมูล
+    ◦ "On the social dashboard the get stats button worked and I could see the entire response in the uh console but once the response was returned none of the data got stored in the" (ตามด้วยชื่อตาราง "platform analytics") "Please fix so that when we get the analytics response it is properly stored"
+• พรอมต์เพื่อแก้ไข error จากการจัดเก็บข้อมูล Analytics (ข้อจำกัดตาราง)
+    ◦ (ตามด้วย error message จาก console) "Please build out whatever is needed"
+• พรอมต์เพื่อแก้ไข error ที่เหลือในการจัดเก็บข้อมูล Analytics (ตามส่วนย่อยของ error message)
+    ◦ "Okay I clicked the get stats button again and most of the data store worked but we still got this error in the console storing the analy." (ตามด้วย error message ที่สั้นลง)
+• พรอมต์เพื่อแก้ไข error สุดท้ายในการจัดเก็บข้อมูล Analytics โดยระบุว่าอาจไม่มีข้อมูล business analytics
+    ◦ "I clicked the get stats and we got this error again everything else worked and so the real error here is with the database storage business analytics this error could be because we are not getting any business analytics because we are not connected to a business LinkedIn page please advise"
+• พรอมต์เพื่อแสดงบัญชีที่เชื่อมต่อแล้วบนหน้า Upload Posts
+    ◦ "On the upload posts page in the select platforms component can you show the connected accounts the user currently is connected to" (ตามด้วย screenshot) "Ideally these connected accounts are clickable so the user can select multiple platforms to post at the same time"
+• พรอมต์เพื่อให้อัปเดต Agent ด้วย Airshare Post API docs และเรียกใช้ Simple Post API call
+    ◦ "I can see the accounts I'm connected to now to properly integrate this post page you need to understand these docs" (ตามด้วย Airshare Post API docs URL) "Every social platform has options in the body param that can be passed to add extra details to that specific platform's post" (ตามด้วยตัวอย่าง options ต่างๆ) "But for now I just want you to integrate the simple post API call for normal social media uploads"
+• พรอมต์เพื่อแก้ไขปัญหา Media Component ไม่อนุญาตให้อัปโหลดวิดีโอ/รูปภาพ
+    ◦ "I was able to upload a post onto Twitter using the platform but the media component did not let me add a video or image to the post please fix that so I can test another upload with a media element"
+• พรอมต์เพื่อเพิ่ม Preview สำหรับไฟล์ที่อัปโหลด
+    ◦ "I was able to upload a video this time to the media component but I want the uploaded file to uh show a preview so the user can review the file they selected before uploading currently it looks like this" (ตามด้วย screenshot)
+• พรอมต์เพื่อทำให้วิดีโอ Preview เล่นได้และมีมิติที่ถูกต้อง
+    ◦ "I was able to see the video preview frame but the video is not playable when I tried clicking on it please also make the dimensions of the preview the same dimensions as the file the user uploaded"
+• พรอมต์เพื่อแก้ไข Bad Request error เมื่อคลิก Publish
+    ◦ "Okay I was able to add a video and watch the preview but when I click publish now I saw this error in the console" (ตามด้วย error message)
+• พรอมต์เพื่อแก้ไข error ที่ต้องอัปโหลดวิดีโอไปยัง Airshare Cloud ก่อน
+    ◦ "I tried uploading again with a video and it failed i think we need to upload the video and image files to air cloud before we pass it to the API to the post API um this is the upload media API call on Airshare to turn the files into publicly viewable URLs" (ตามด้วย URL Airshare docs สำหรับ upload media API call) "You have an option to do it in either one of these two ways" (ตามด้วย request example สำหรับ media post request) "You also have an option to pass the file as a base 64 or as a multi-art form data you can decide once we get the URL response back with the file that the user uploaded and converted to this public URL on Airshare the post API call then needs to be made explain your understanding and implements"
+• พรอมต์เพื่อแก้ไขข้อผิดพลาดในการใช้ Get Upload Large Media Files แทน Base64
+    ◦ "The video upload conversion to pre-signed URL needs to be updated the workflow actually needs to follow these docs instructions" (ตามด้วย URL docs สำหรับ Get Upload Large Media Files) "This is the request to get a pre-signed URL from the file the user wants to upload please implement this instead of the base 64 method and we will try the workflow again with a video upload"
+• พรอมต์เพื่อแก้ไข formatting ของ API call สำหรับการอัปโหลดวิดีโอ
+    ◦ "Okay that is great progression i can see the file was converted to a pre-signed URL but when the API call had to upload the content we got this error" (ตามด้วย console message) "Please fix the formatting of the API call so it works correctly make sure the profile key and API key are passed in the API call for the upload step and I'll test it again"
+• พรอมต์เพื่อเพิ่ม Calendar Component ลงในหน้า Content Calendar
+    ◦ "Okay great now before we start actually implementing the content calendar history request we want to add this calendar component to the content calendar page" (ตามด้วย prompt จาก 21st Dev) (ตามด้วย demo tsx code) (ตามด้วย screenshot ของ calendar) "Please build this out"
+• พรอมต์เพื่อกำหนดการทำงานของ History Request สำหรับ Social Posts
+    ◦ "Okay cool now this is the instructions to make the history request for the social posts actually work" (ตามด้วย parameters ที่จำเป็น: API key, profile key) "This is the response" (ตามด้วย response example) "If you can build a table in the database for us to store these this history that's really important" "This is the um example response from the airshare API airshare history API to build a table in the database that can satisfy and store this type of schema" (ตามด้วย response example)
+• พรอมต์เพื่อกำหนดให้ API call ทำงานเมื่อคลิก Content Calendar Page
+    ◦ "When the user clicks on the content calendar page in the side navbar the history API call needs to be made and stored in the database please explain your understanding and implement and we will test"
+• พรอมต์เพื่อแก้ไข error เรื่อง HTTP request method และ URL ที่ไม่ถูกต้อง
+    ◦ "When I clicked on the content calendar page this is the API call you need to make when the user clicks the content calendar page" (ตามด้วยตัวอย่าง API call สำหรับ Post History) "And these are the header params" (ตามด้วย header params)
+• พรอมต์เพื่อแจ้งว่า History API call ทำงานแล้วและต้องการให้จัดเก็บข้อมูลในฐานข้อมูล
+    ◦ "Okay the history API call works i can see the response in the back end and before we continue the message let's see if it was stored in any of the database tables"
+• พรอมต์เพื่อ map ข้อมูล Post History ไปยัง Content Calendar View Component
+    ◦ "Okay the history API call works i can see the response in the back end and I can see that the posts were stored in the posts table now we want to work on mapping these posts to the content calendar view component that we just added to the calendar page so we're going to say "Please map in the post information from the history request and show the icon of the platform that a post is going onto please add that to the day on the calendar that the post is being uploaded on or was already uploaded on"
+• พรอมต์เพื่อแก้ไขปัญหา Content Calendar ไม่ update แบบเรียลไทม์
+    ◦ "Great i can see the post history is being mapped to calendar but I just uploaded another post and the post was not shown on the day that I uploaded it on the content calendar page the content calendar page needs to update in real time when a post goes live or is scheduled that's why we want the API call to trigger when the user clicks the content calendar button please fix so that the mapping on the calendar for the post history request is working in real time"
+• พรอมต์เพื่อกำหนดกลไกการรีเฟรชแบบเรียลไทม์เมื่อผู้ใช้คลิกหน้า Content Calendar
+    ◦ "Whenever the user clicks onto the content calendar page we need to do this realtime refresh mechanism"
