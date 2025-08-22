@@ -74,10 +74,13 @@ export default function Dashboard() {
 
   return (
     <MainLayout title="Social Dashboard">
-      <div className="space-y-8">
-        <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-          <Button onClick={() => setLocation('/upload-posts')} className="bg-blue-600 hover:bg-blue-700">
+      <div className="space-y-6 sm:space-y-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white">Dashboard</h1>
+          <Button 
+            onClick={() => setLocation('/upload-posts')} 
+            className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto min-h-[44px] touch-manipulation font-medium"
+          >
             Create Post
           </Button>
         </div>
@@ -87,7 +90,7 @@ export default function Dashboard() {
           loading={analyticsLoading} 
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           <ConnectedPlatforms 
             platforms={connectedPlatforms}
             onConnect={handleConnectPlatforms}

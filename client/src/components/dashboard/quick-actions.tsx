@@ -40,9 +40,9 @@ export function QuickActions() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="mt-8">
-      <h3 className="text-lg font-semibold text-white mb-6">Quick Actions</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="mt-6 sm:mt-8">
+      <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Quick Actions</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {actions.map((action) => {
           const Icon = action.icon;
           
@@ -50,14 +50,14 @@ export function QuickActions() {
             <button
               key={action.title}
               onClick={() => setLocation(action.href)}
-              className="glass-morphism rounded-xl p-6 hover:scale-105 transition-all duration-200 group text-left"
+              className="glass-morphism rounded-xl p-4 sm:p-6 hover:scale-105 transition-all duration-200 group text-left min-h-[120px] touch-manipulation"
               data-testid={action.testId}
             >
-              <div className={`w-12 h-12 bg-gradient-to-r ${action.gradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}>
-                <Icon className="w-6 h-6 text-white" />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${action.gradient} rounded-lg flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-200`}>
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-white mb-2">{action.title}</h4>
-              <p className="text-sm text-slate-400">{action.description}</p>
+              <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">{action.title}</h4>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">{action.description}</p>
             </button>
           );
         })}

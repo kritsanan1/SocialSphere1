@@ -29,14 +29,9 @@ const activityColors = {
 
 export function RecentActivity({ activities }: RecentActivityProps) {
   return (
-    <div className="glass-morphism rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
-        <button className="text-indigo-400 hover:text-indigo-300 text-sm font-medium">
-          View All
-        </button>
-      </div>
-      
+    <div className="glass-morphism rounded-xl p-4 sm:p-6">
+      <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Recent Activity</h3>
+
       <div className="space-y-4">
         {activities.length === 0 ? (
           <div className="text-center py-8" data-testid="empty-activity">
@@ -46,7 +41,7 @@ export function RecentActivity({ activities }: RecentActivityProps) {
           activities.map((activity) => {
             const Icon = activityIcons[activity.type];
             const colorClass = activityColors[activity.type];
-            
+
             return (
               <div 
                 key={activity.id}

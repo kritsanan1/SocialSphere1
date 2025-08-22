@@ -31,14 +31,17 @@ const platformColors: Record<string, string> = {
 
 export function ConnectedPlatforms({ platforms, onConnect }: ConnectedPlatformsProps) {
   return (
-    <div className="glass-morphism rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Connected Platforms</h3>
-        <button className="text-indigo-400 hover:text-indigo-300 text-sm font-medium">
-          View All
+    <div className="glass-morphism rounded-xl p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
+        <h3 className="text-lg sm:text-xl font-semibold text-white">Connected Platforms</h3>
+        <button
+          onClick={onConnect}
+          className="text-blue-400 hover:text-blue-300 text-sm font-medium min-h-[44px] px-3 py-2 touch-manipulation self-start"
+        >
+          Connect More
         </button>
       </div>
-      
+
       <div className="space-y-4">
         {platforms.length === 0 ? (
           <div className="text-center py-8" data-testid="empty-platforms">
@@ -55,7 +58,7 @@ export function ConnectedPlatforms({ platforms, onConnect }: ConnectedPlatformsP
           platforms.map((platform) => {
             const Icon = platformIcons[platform.platform.toLowerCase()] || Twitter;
             const colorClass = platformColors[platform.platform.toLowerCase()] || 'bg-blue-500';
-            
+
             return (
               <div 
                 key={platform.id}
@@ -82,7 +85,7 @@ export function ConnectedPlatforms({ platforms, onConnect }: ConnectedPlatformsP
           })
         )}
       </div>
-      
+
       <Button 
         onClick={onConnect}
         className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2"

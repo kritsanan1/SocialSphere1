@@ -64,25 +64,25 @@ export function StatsCards({ stats, loading }: StatsCardsProps) {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
       {cards.map((card) => {
         const Icon = card.icon;
         return (
           <div 
             key={card.title}
-            className="glass-morphism rounded-xl p-6 hover:scale-105 transition-transform duration-200"
+            className="glass-morphism rounded-xl p-4 sm:p-6 hover:scale-105 transition-transform duration-200 min-h-[120px] touch-manipulation"
             data-testid={card.testId}
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-slate-400">{card.title}</p>
-                <p className="text-3xl font-bold text-white mt-2" data-testid={card.testId === 'stat-posts' ? 'text-total-posts' : card.testId === 'stat-likes' ? 'text-total-likes' : card.testId === 'stat-shares' ? 'text-total-shares' : 'text-total-comments'}>
+            <div className="flex items-center justify-between h-full">
+              <div className="flex-1 min-w-0">
+                <p className="text-sm sm:text-base font-medium text-slate-400 mb-2">{card.title}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mb-1 break-words" data-testid={card.testId === 'stat-posts' ? 'text-total-posts' : card.testId === 'stat-likes' ? 'text-total-likes' : card.testId === 'stat-shares' ? 'text-total-shares' : 'text-total-comments'}>
                   {card.value}
                 </p>
-                <p className="text-sm text-emerald-400 mt-1">{card.change}</p>
+                <p className="text-xs sm:text-sm text-emerald-400">{card.change}</p>
               </div>
-              <div className={`w-12 h-12 bg-gradient-to-r ${card.gradient} rounded-lg flex items-center justify-center`}>
-                <Icon className="w-6 h-6 text-white" />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${card.gradient} rounded-lg flex items-center justify-center ml-3 flex-shrink-0`}>
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
             </div>
           </div>
