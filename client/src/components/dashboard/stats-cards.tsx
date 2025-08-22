@@ -1,10 +1,13 @@
 import { Users, FileText, Link, Eye } from 'lucide-react';
 
 interface StatsData {
-  totalFollowers: number;
-  totalPosts: number;
-  connectedAccounts: number;
-  totalViews: string;
+  totalFollowers?: number;
+  totalPosts?: number;
+  connectedAccounts?: number;
+  totalViews?: string;
+  totalLikes?: number;
+  totalShares?: number;
+  totalComments?: number;
 }
 
 interface StatsCardsProps {
@@ -17,43 +20,46 @@ export function StatsCards({ stats, loading }: StatsCardsProps) {
     totalFollowers: 0,
     totalPosts: 0,
     connectedAccounts: 0,
-    totalViews: '0'
+    totalViews: '0',
+    totalLikes: 0,
+    totalShares: 0,
+    totalComments: 0
   };
 
-  const data = stats || defaultStats;
+  const data = { ...defaultStats, ...stats };
 
   const cards = [
     {
-      title: 'Total Followers',
-      value: loading ? '...' : data.totalFollowers.toLocaleString(),
-      change: '+5.2% from last month',
-      icon: Users,
-      gradient: 'from-blue-500 to-indigo-600',
-      testId: 'stat-followers'
-    },
-    {
       title: 'Total Posts',
-      value: loading ? '...' : data.totalPosts.toLocaleString(),
+      value: loading ? 'Loading...' : (data.totalPosts || 0).toLocaleString(),
       change: '+12 this week',
       icon: FileText,
       gradient: 'from-purple-500 to-pink-600',
       testId: 'stat-posts'
     },
     {
-      title: 'Connected Accounts',
-      value: loading ? '...' : data.connectedAccounts.toString(),
-      change: 'across 5 platforms',
-      icon: Link,
-      gradient: 'from-emerald-500 to-teal-600',
-      testId: 'stat-accounts'
+      title: 'Total Likes',
+      value: loading ? 'Loading...' : (data.totalLikes || 0).toLocaleString(),
+      change: '+5.2% from last month',
+      icon: Users,
+      gradient: 'from-blue-500 to-indigo-600',
+      testId: 'stat-likes'
     },
     {
-      title: 'Total Views',
-      value: loading ? '...' : data.totalViews,
+      title: 'Total Shares',
+      value: loading ? 'Loading...' : (data.totalShares || 0).toLocaleString(),
+      change: 'across platforms',
+      icon: Link,
+      gradient: 'from-emerald-500 to-teal-600',
+      testId: 'stat-shares'
+    },
+    {
+      title: 'Total Comments',
+      value: loading ? 'Loading...' : (data.totalComments || 0).toLocaleString(),
       change: '+18.3% engagement',
       icon: Eye,
       gradient: 'from-orange-500 to-red-600',
-      testId: 'stat-views'
+      testId: 'stat-comments'
     },
   ];
 
@@ -70,7 +76,7 @@ export function StatsCards({ stats, loading }: StatsCardsProps) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-400">{card.title}</p>
-                <p className="text-3xl font-bold text-white mt-2" data-testid={`${card.testId}-value`}>
+                <p className="text-3xl font-bold text-white mt-2" data-testid={card.testId === 'stat-posts' ? 'text-total-posts' : card.testId === 'stat-likes' ? 'text-total-likes' : card.testId === 'stat-shares' ? 'text-total-shares' : 'text-total-comments'}>
                   {card.value}
                 </p>
                 <p className="text-sm text-emerald-400 mt-1">{card.change}</p>
